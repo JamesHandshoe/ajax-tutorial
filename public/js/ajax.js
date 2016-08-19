@@ -15,7 +15,7 @@ var friendTemplate = "" +
 	"<p class='lead'><strong>Name:</strong> {{name}}</p>" + 
 	"<p class='lead'><strong>Age:</strong> {{age}}</p>" +
 	"<button id='{{id}}' class='remove btn btn-info'>X</button>" +
-	"</li>";
+	"</li><br>";
 
 function addFriend(friend){
 	$friends.append(Mustache.render(friendTemplate, friend));
