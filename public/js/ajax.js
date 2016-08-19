@@ -12,9 +12,9 @@ var $age = $('#age');
 
 var friendTemplate = "" + 
 	"<li>" +
-	"<p><strong>Name:</strong> {{name}}</p>" + 
-	"<p><strong>Age:</strong> {{age}}</p>" +
-	"<button id='{{id}}' class='remove'>X</button>" +
+	"<p class='lead'><strong>Name:</strong> {{name}}</p>" + 
+	"<p class='lead'><strong>Age:</strong> {{age}}</p>" +
+	"<button id='{{id}}' class='remove btn btn-info'>X</button>" +
 	"</li>";
 
 function addFriend(friend){
@@ -26,7 +26,7 @@ $(document).ready(function(){
 	//AJAX GET Function - then loop through and create the DOM element to display it
 	$.ajax({
 		type: 'GET',
-		url: 'https://rest.learncode.academy/api/learncode/friends',
+		url: 'http://rest.learncode.academy/api/learncode/friends',
 		success: function(friends) {
 		// console.log("I have friends!", data); //returns all of johnbob's friends
 			$.each(friends, function(i, friend){
@@ -49,7 +49,7 @@ $(document).ready(function(){
 		//AJAX POST Function - click the button w/ id add-friend and then pass it to the API
 		$.ajax({
 			type: 'POST',
-			url: 'https://rest.learncode.academy/api/learncode/friends',
+			url: 'http://rest.learncode.academy/api/learncode/friends',
 			data: friend,
 			success: function(newFriend){
 				addFriend(newFriend);	
@@ -68,7 +68,7 @@ $(document).ready(function(){
 		//AJAX DELETE Function - click the .remove class button and the id identifies what to delete
 		$.ajax({
 			type: 'DELETE',
-			url: 'https://rest.learncode.academy/api/learncode/friends/' + $(this).attr('id'),
+			url: 'http://rest.learncode.academy/api/learncode/friends/' + $(this).attr('id'),
 			success: function(){
 				$li.fadeOut(300, function(){
 					$(this).remove();
