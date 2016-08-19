@@ -19,6 +19,8 @@ var friendTemplate = "" +
 
 function addFriend(friend){
 	$friends.append(Mustache.render(friendTemplate, friend));
+	$name.val('');
+	$age.val('');
 };
 
 $(document).ready(function(){
